@@ -1,0 +1,7 @@
+* Purpose
+
+Learning how to create beamer presentations in org-mode
+
+* Inspriation, Links, etc
+
+- [[https://orgmode.org/worg/exporters/beamer/tutorial.html][Writing Beamer presentations in org-mode]]

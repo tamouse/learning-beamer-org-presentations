@@ -1,0 +1,100 @@
+#+STARTUP: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+OPTIONS: H:2 toc:t
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+#+AUTHOR: Tamara Temple
+#+EMAIL: tamara@tamouse.org
+#+DATE: 2019-04-19
+#+DESCRIPTION: Learning how to write beamer presentations in org-mode
+#+KEYWORDS: beamer, org-mode
+#+LANGUAGE: en
+#+TITLE: A beamer talk
+
+* Introduction
+** First Slide
+
+This slide is the introduction
+
+- Who I am: Tamara Temple
+- Where to find me:
+  - twitter: @tamouse
+  - github: @tamouse
+  - email: tamara@tamouse.org
+
+** Second Slide
+
+What this talk is about
+
+- just some rambling
+- who is asking?
+
+* What about Beamer
+
+** Need to have it in your emacs init
+
+In your emacs ~.init.el~ somewhere, add:
+
+#+BEGIN_SRC emacs-lisp
+  (require 'ox-beamer)
+#+END_SRC
+
+And you should have all the goodness available
+
+** Exporting to PDF
+
+Use the standard org-mode LaTeX publishing to a PDF:
+
+- ~C-c C-e l O~ - publishes the presentation to a PDF file and opens it in the PDF viewer (Preview on macOS)
+- that's an "ell" lower case
+- then "OH" upper case
+
+** The Beamer Header
+
+YASnippet has a default snippet included: ~beamer~ that inserts the appropriate header, except for one thing:
+
+- it includes the line ~#+BEAMER_FRAME_LEVEL: 2~ which is incorrect. Instead use options:
+
+#+BEGIN_SRC org
+  ,#+OPTIONS: H:2 toc:t
+#+END_SRC
+
+- sets the "slide" marker to heading level 2, and includes a table of contents of the level 1 headings.
+
+** More header goodness
+
+I added to following to make a nicer presentation:
+
+- TITLE
+- AUTHOR
+- EMAIL
+- DATE
+- DESCRIPTION
+- KEYWORDS
+
+** Multi-Column Slides
+
+Beamer and org-mode give support for 2-up (side-by-side) slides, too
+
+- make sure you load up ~org-beamer-mode~
+- create the sub-sub-section (one below the slide heading level)
+- ~C-c C-b |~ (pipe symbol) to define a column
+
+** Two Column Slide
+
+*** Left-hand Side                                                    :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+- some stuff
+- and more stuff
+
+and then...
+
+*** Right-hand Side                                                   :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+
+... the other thing happened!
